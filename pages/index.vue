@@ -27,6 +27,7 @@
       </v-btn>
       <div class="display-block text-center headline">
         <p>{{ wordOutpt }}</p>
+        <p>{{ countSyllable(wordOutpt) }} Syllable</p>
       </div>
       <div>
         <v-chip
@@ -44,6 +45,7 @@
 </template>
 
 <script>
+import syllable from 'syllable'
 export default {
   data() {
     return {
@@ -158,7 +160,8 @@ export default {
       word = word.charAt(0).toUpperCase() + word.slice(1)
       if (
         this.wordList.includes(word.toLowerCase()) ||
-        this.wordsTried.includes(word)
+        this.wordsTried.includes(word) ||
+        syllable(word) > 2
       )
         return this.buildWord(stack - 1)
       return word
@@ -170,6 +173,9 @@ export default {
         this.wordsTried.push(this.wordOutpt)
         this.calculating = false
       }, 200)
+    },
+    countSyllable(word) {
+      return syllable(word)
     }
   }
 }
