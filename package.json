@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "cross-env": "^5.2.0",
     "fastify": "^1.13.3",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.16.3",
     "syllable": "^4.0.1"
   },
   "devDependencies": {
